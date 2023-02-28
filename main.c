@@ -73,6 +73,8 @@ int main(int argc, char **argv)
   /*Initialize the HAL (display, input devices, tick) for LVGL*/
   hal_init();
 
+// FIXME
+#if 0
 //  lv_example_switch_1();
 //  lv_example_calendar_1();
 //  lv_example_btnmatrix_2();
@@ -92,6 +94,9 @@ int main(int argc, char **argv)
 //  lv_example_label_1();
 
     lv_demo_widgets();
+#endif
+
+  lv_example_meter_5();
 
   while(1) {
       /* Periodically call the lv_task handler.
@@ -137,6 +142,9 @@ static void hal_init(void)
   lv_group_t * g = lv_group_create();
   lv_group_set_default(g);
 
+// FIXME
+// Disable unnecessary controls
+#if 0
   /* Add the mouse as input device
    * Use the 'mouse' driver which reads the PC's mouse*/
   static lv_indev_drv_t indev_drv_1;
@@ -166,4 +174,5 @@ static void hal_init(void)
   lv_obj_t * cursor_obj = lv_img_create(lv_scr_act()); /*Create an image object for the cursor */
   lv_img_set_src(cursor_obj, &mouse_cursor_icon);           /*Set the image source*/
   lv_indev_set_cursor(mouse_indev, cursor_obj);             /*Connect the image  object to the driver*/
+#endif
 }
